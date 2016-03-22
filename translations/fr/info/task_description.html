@@ -1,0 +1,63 @@
+<p>
+  En voyageant, le vaisseau subit de nombreuses pressions.
+  Par conséquent, une part importante de la maintenance concerne la surveillance de l'extérieur de la coque.
+  Stéphane utilise pour cela un appareil digital qui examine un échantillon de la coque, en cartographie la résistance,
+  et fournit une carte de la zone, divisée en petits carrés qui portent les mesures effectuées.
+  Il arrive à Stephan de ne disposer que de peu de temps ; il peut alors ne réparer que deux points.
+  Nous avons donc besoin d'un algorithme qui détermine les points faibles dans une zone.
+</p>
+
+<p>
+La carte de résistance est représentée par une matrice de nombres entiers.
+Le nombre porté par une cellule est la mesure de la résistance de celle celule.
+Pour trouver le point faible, il faut trouver la ligne et la colonne faibles. 
+Le point faible ce trouve à l'intersection de cette ligne et de cette colonne.
+La résistance d'une ligne (respectivement : d'une colonne) est la somme des résistances des cellules de cette ligne (resp : colonne).
+Il vous faut déterminer les coordonnées du point faible (sa ligne et sa colonne).
+La première ligne (resp : colonne) porte l'indice 0.
+Si un échantillon possède plusieurs points faibles (donc de même faiblesse), choisir alors celui qui est le plus en haut à gauche.
+</p>
+
+<p style="text-align: center;">
+    <img class="for_info_only" title="weak-point" src="{{MEDIA}}weak-point.png" alt="weak-point" width="400px"/>
+    <img class="for_editor_only" title="weak-point" src="{{MEDIA}}weak-point.png" alt="weak-point" width="380px"/>
+</p>
+
+<p>
+    <strong>Input: </strong> Une carte des résistances, comme liste (list) de listes (list) d'entiers (int).
+</p>
+
+<p>
+    <strong>Output: </strong> Les coordonnées du point faible, comme liste (tuple) d'entiers (int). 
+</p>
+
+
+<div class="for_info_only">
+    <p>
+        <strong>Exemple:</strong>
+    </p>
+    <pre class="brush: python">
+weak_point([[7, 2, 7, 2, 8],
+            [2, 9, 4, 1, 7],
+            [3, 8, 6, 2, 4],
+            [2, 5, 2, 9, 1],
+            [6, 6, 5, 4, 5]]) == [3, 3]
+weak_point([[7, 2, 4, 2, 8],
+            [2, 8, 1, 1, 7],
+            [3, 8, 6, 2, 4],
+            [2, 5, 2, 9, 1],
+            [6, 6, 5, 4, 5]]) == [1, 2]
+    </pre>
+</div>
+
+<p class="for_info_only">
+    <strong>Utilisation: </strong>
+    Les matrices (tableaux 2D) sont des structures de données très utilisées, et il est précieux d'en avoir une parfaite maîtrise.
+</p>
+
+<p>
+    <strong>Préconditions:</strong><br>
+    0 &lt; len(<strong>matrix</strong>) &le; 10<br>
+    all(len(row) == len(<strong>matrix</strong>) for row in <strong>matrix</strong>)<br>
+    all(all(0 &lt; x &lt; 10 for x in row) for row in <strong>matrix</strong>)
+</p>
