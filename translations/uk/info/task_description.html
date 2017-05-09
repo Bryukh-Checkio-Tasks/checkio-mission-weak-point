@@ -14,10 +14,9 @@
     рядок (стовпець). Якщо в секції є декілька слабких точок, тоді треба вибрати верхню точку зліва.
 </p>
 
-<p style="text-align: center;">
-    <img class="for_info_only" title="weak-point" src="{{MEDIA}}weak-point.png" alt="weak-point" width="400px"/>
-    <img class="for_editor_only" title="weak-point" src="{{MEDIA}}weak-point.png" alt="weak-point" width="380px"/>
-</p>
+<div class="for_info_only" style="text-align: center">
+    <img src="{{MEDIA}}weak-point.png" style="max-height: 380px">
+</div>
 
 <p>
     <strong>Вхідні дані: </strong> Мапа міцності як список списків з цілими числами.
@@ -29,10 +28,23 @@
 
 
 <div class="for_info_only">
-    <p>
-        <strong>Приклади:</strong>
-    </p>
-    <pre class="brush: python">
+<p><strong>Example:</strong></p>
+
+{% if interpreter.slug == "js-node" %}
+<pre class="brush: python">
+weakPoint([[7, 2, 7, 2, 8],
+           [2, 9, 4, 1, 7],
+           [3, 8, 6, 2, 4],
+           [2, 5, 2, 9, 1],
+           [6, 6, 5, 4, 5]]) == [3, 3]
+weakPoint([[7, 2, 4, 2, 8],
+           [2, 8, 1, 1, 7],
+           [3, 8, 6, 2, 4],
+           [2, 5, 2, 9, 1],
+           [6, 6, 5, 4, 5]]) == [1, 2]
+</pre>
+{% else %}
+<pre class="brush: python">
 weak_point([[7, 2, 7, 2, 8],
             [2, 9, 4, 1, 7],
             [3, 8, 6, 2, 4],
@@ -43,7 +55,8 @@ weak_point([[7, 2, 4, 2, 8],
             [3, 8, 6, 2, 4],
             [2, 5, 2, 9, 1],
             [6, 6, 5, 4, 5]]) == [1, 2]
-    </pre>
+</pre>
+{% endif %}
 </div>
 
 <p class="for_info_only">
